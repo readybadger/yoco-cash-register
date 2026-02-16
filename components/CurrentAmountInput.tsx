@@ -1,6 +1,6 @@
 import { useState } from "react";
 import AmountKeypad from "./AmountKeypad";
-import CurrentAmount from "./CurrentAmount";
+import CurrentAmountDisplay from "./CurrentAmountDisplay";
 
 type CurrentAmountInputProps = {
     onAdd: (value: number) => void;
@@ -31,7 +31,7 @@ export default function CurrentAmountInput({ onAdd }: CurrentAmountInputProps) {
 
     return (
         <>
-            <CurrentAmount value={parsedAmount} />
+            <CurrentAmountDisplay value={parsedAmount} />
             <AmountKeypad
                 onNumberPressed={onNumberPressed}
                 onDeletePressed={onDelPressed}

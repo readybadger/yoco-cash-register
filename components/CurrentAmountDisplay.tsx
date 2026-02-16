@@ -5,7 +5,7 @@ import useCurrencyFormatter from "@/hooks/use-currency-formatter";
 type CurrentAmountProps = {
     value: number;
 };
-export default function CurrentAmount({ value }: CurrentAmountProps) {
+export default function CurrentAmountDisplay({ value }: CurrentAmountProps) {
     const { format } = useCurrencyFormatter();
     return (
         <View style={styles.currentAmountView}>
