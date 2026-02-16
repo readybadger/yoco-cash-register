@@ -1,17 +1,15 @@
 import { View, StyleSheet } from "react-native";
 import ThemedText from "./themed/ThemedText";
+import useCurrencyFormatter from "@/hooks/use-currency-formatter";
 
 type CurrentAmountProps = {
     value: number;
 };
 const CurrentAmount = ({ value }: CurrentAmountProps) => {
-    const formattedAmount = Intl.NumberFormat("en-ZA", {
-        style: "currency",
-        currency: "ZAR",
-    }).format(value);
+    const { format } = useCurrencyFormatter();
     return (
         <View style={styles.currentAmountView}>
-            <ThemedText style={styles.currentAmountText}>{formattedAmount}</ThemedText>
+            <ThemedText style={styles.currentAmountText}>{format(value)}</ThemedText>
         </View>
     );
 };
