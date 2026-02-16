@@ -2,10 +2,12 @@ import ChargeList from "@/components/ChargeList";
 import CurrentAmountInput from "@/components/CurrentAmountInput";
 import { Charge } from "@/types/point-of-sale";
 import { useState } from "react";
+import { StyleSheet, View } from "react-native";
 
-import { SafeAreaView } from "react-native-safe-area-context";
+import { useSafeAreaInsets } from "react-native-safe-area-context";
 
 export default function PointOfSale() {
+    const safeAreaInsets = useSafeAreaInsets();
     const [charges, setCharges] = useState<Charge[]>([]);
 
     const onAddCharge = (amount: number) => {
@@ -21,9 +23,22 @@ export default function PointOfSale() {
     };
 
     return (
-        <SafeAreaView>
+        <View
+            style={[
+                {
+                    paddingTop: safeAreaInsets.top,
+                },
+                styles.view,
+            ]}
+        >
             <CurrentAmountInput onAdd={onAddCharge} />
             <ChargeList charges={charges} />
-        </SafeAreaView>
+        </View>
     );
 }
+
+const styles = StyleSheet.create({
+    view: {
+        flexGrow: 1,
+    },
+});

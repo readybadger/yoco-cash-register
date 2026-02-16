@@ -33,6 +33,8 @@ export default function ChargeList({ charges }: ChargeListProps) {
 const styles = StyleSheet.create({
     list: {
         paddingVertical: 12,
+        flexGrow: 1,
+        alignSelf: "stretch",
     },
     listItem: {
         textAlign: "right",
