@@ -12,13 +12,13 @@ export default function Settings() {
 
     const onToggleMatchSystem = (matchSystem: boolean) => {
         updateSettings({
-            theme: matchSystem ? "system" : systemColorScheme,
+            themeSetting: matchSystem ? "system" : systemColorScheme,
         });
     };
 
     const onToggleDarkMode = (darkModeOn: boolean) => {
         updateSettings({
-            theme: darkModeOn ? "dark" : "light",
+            themeSetting: darkModeOn ? "dark" : "light",
         });
     };
 
@@ -39,7 +39,7 @@ export default function Settings() {
                     <View style={styles.switchValueRow}>
                         <ThemedText style={styles.label}>Match system appearance</ThemedText>
                         <Switch
-                            value={settings.theme === "system"}
+                            value={settings.themeSetting === "system"}
                             onValueChange={onToggleMatchSystem}
                         />
                     </View>
@@ -47,10 +47,11 @@ export default function Settings() {
                         <ThemedText style={styles.label}>Dark mode</ThemedText>
                         <Switch
                             value={
-                                (settings.theme === "system" && systemColorScheme === "dark") ||
-                                settings.theme === "dark"
+                                (settings.themeSetting === "system" &&
+                                    systemColorScheme === "dark") ||
+                                settings.themeSetting === "dark"
                             }
-                            disabled={settings.theme === "system"}
+                            disabled={settings.themeSetting === "system"}
                             onValueChange={onToggleDarkMode}
                         />
                     </View>
