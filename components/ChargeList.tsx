@@ -94,7 +94,7 @@ const styles = StyleSheet.create({
     },
     chargeText: {
         textAlign: "right",
-        fontSize: 18,
+        fontSize: 20,
     },
     totalText: {
         paddingVertical: 24,
