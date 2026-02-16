@@ -17,7 +17,7 @@ export default function CurrentAmountDisplay({ value }: CurrentAmountProps) {
 const styles = StyleSheet.create({
     currentAmountView: {
         paddingHorizontal: 24,
-        paddingVertical: 32,
+        paddingVertical: 52,
     },
     currentAmountText: {
         fontSize: 32,

@@ -87,14 +87,14 @@ const styles = StyleSheet.create({
     },
     listItem: {
         paddingVertical: 8,
+        paddingHorizontal: 46,
     },
     lastListItem: {
         paddingBottom: 24,
     },
     chargeText: {
         textAlign: "right",
-        paddingHorizontal: 46,
-        fontSize: 22,
+        fontSize: 18,
     },
     totalText: {
         paddingVertical: 24,
