@@ -9,32 +9,31 @@ type CurrentAmountInputProps = {
 const MAX_SUPPORTED_AMOUNT = 100000000;
 
 export default function CurrentAmountInput({ onAdd }: CurrentAmountInputProps) {
-    const [amount, setAmount] = useState("");
+    const [amount, setAmount] = useState(0);
 
-    const parsedAmount = parseInt(amount) || 0;
-
-    const onNumberPressed = (digit: string) => {
-        const newAmountString = `${amount}${digit}`;
-        const newAmount = parseInt(newAmountString) || 0;
+    const onNumberPressed = (digit: number) => {
+        const newAmount = amount * 10 + digit;
         if (newAmount < MAX_SUPPORTED_AMOUNT) {
-            setAmount(newAmountString);
+            setAmount(newAmount);
         }
     };
 
     const onDelPressed = () => {
-        setAmount(amount.slice(0, -1));
+        if (amount > 0) {
+            setAmount(Math.trunc(amount / 10));
+        }
     };
 
     const onAddPressed = () => {
-        if (parsedAmount) {
-            onAdd(parsedAmount);
-            setAmount("");
+        if (amount) {
+            onAdd(amount);
+            setAmount(0);
         }
     };
 
     return (
         <>
-            <CurrentAmountDisplay value={parsedAmount} />
+            <CurrentAmountDisplay value={amount} />
             <AmountKeypad
                 onNumberPressed={onNumberPressed}
                 onDeletePressed={onDelPressed}
