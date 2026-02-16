@@ -19,7 +19,7 @@ export type AppSettingsProvider = {
 export const DEFAULT_APP_SETTINGS: AppSettings = {
     locale: "en-ZA",
     currency: "ZAR",
-    themeSetting: "light",
+    themeSetting: "system",
     autoScrollChargeList: true,
 };
 
