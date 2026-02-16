@@ -3,6 +3,7 @@ import ThemedText from "./themed/ThemedText";
 import { FlatList, StyleSheet } from "react-native";
 import { useThemeColors } from "@/hooks/use-theme-color";
 import useCurrencyFormatter from "@/hooks/use-currency-formatter";
+import EmptyChargeListMessage from "./EmptyChargeListMessage";
 
 type ChargeListProps = {
     charges: Charge[];
@@ -21,6 +22,7 @@ export default function ChargeList({ charges }: ChargeListProps) {
             ]}
             contentContainerStyle={styles.list}
             data={charges}
+            ListEmptyComponent={EmptyChargeListMessage}
             renderItem={({ item: { amount } }) => (
                 <ThemedText style={styles.listItem} variant="secondary">
                     {format(amount)}
