@@ -1,7 +1,15 @@
 import ThemedText from "@/components/themed/ThemedText";
 import useSettings from "@/hooks/use-settings";
 import { useThemeColors } from "@/hooks/use-theme-color";
-import { ScrollView, StyleProp, StyleSheet, Switch, useColorScheme, View } from "react-native";
+import {
+    ScrollView,
+    StyleProp,
+    StyleSheet,
+    Switch,
+    useColorScheme,
+    View,
+    ViewStyle,
+} from "react-native";
 import { useSafeAreaInsets } from "react-native-safe-area-context";
 
 export default function Settings() {
@@ -10,7 +18,7 @@ export default function Settings() {
     const [backgroundColor, borderColor] = useThemeColors("background", "border");
     const systemColorScheme = useColorScheme();
 
-    const sectionStyle: StyleProp = [
+    const sectionStyle: StyleProp<ViewStyle> = [
         styles.sectionContainer,
         {
             borderColor,
@@ -26,6 +34,12 @@ export default function Settings() {
     const onToggleDarkMode = (darkModeOn: boolean) => {
         updateSettings({
             themeSetting: darkModeOn ? "dark" : "light",
+        });
+    };
+
+    const onToggleAutoScrollChargeList = (autoScrollChargeList: boolean) => {
+        updateSettings({
+            autoScrollChargeList,
         });
     };
 
@@ -61,6 +75,19 @@ export default function Settings() {
                             disabled={settings.themeSetting === "system"}
                             onValueChange={onToggleDarkMode}
                         />
+                    </View>
+                </View>
+                <View style={sectionStyle}>
+                    <ThemedText style={styles.sectionTitle}>Point of Sale</ThemedText>
+                    <View style={styles.switchValueRow}>
+                        <ThemedText style={styles.label}>Auto-scroll charge list</ThemedText>
+                        <Switch
+                            value={settings.autoScrollChargeList}
+                            onValueChange={onToggleAutoScrollChargeList}
+                        />
+                    </View>
+                    <View style={styles.switchValueRow}>
+                        <ThemedText style={styles.label}>Currency</ThemedText>
                     </View>
                 </View>
             </ScrollView>
