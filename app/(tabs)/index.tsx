@@ -1,11 +1,11 @@
-import { Text } from "react-native";
+import CurrentAmount from "@/components/CurrentAmount";
 
 import { SafeAreaView } from "react-native-safe-area-context";
 
 export default function PointOfSale() {
     return (
         <SafeAreaView>
-            <Text>Point of Sale</Text>
+            <CurrentAmount value={0} />
         </SafeAreaView>
     );
 }
