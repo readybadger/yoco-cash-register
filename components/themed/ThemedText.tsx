@@ -1,19 +1,19 @@
-import { ColourName, ColourVariant } from "@/constants/types";
+import { ColorName, ColorVariant } from "@/constants/types";
 import { useThemeColors } from "@/hooks/use-theme-color";
 import { Text, TextProps } from "react-native";
 
 type ThemedTextProps = {
-    variant?: ColourVariant;
+    variant?: ColorVariant;
 } & TextProps;
 
 const ThemedText = ({ variant = "primary", style, ...textProps }: ThemedTextProps) => {
-    const colourName: ColourName = variant === "secondary" ? "textSecondary" : "text";
-    const textColour = useThemeColors(colourName);
+    const colorName: ColorName = variant === "secondary" ? "textSecondary" : "text";
+    const textColor = useThemeColors(colorName);
     return (
         <Text
             style={[
                 {
-                    color: textColour,
+                    color: textColor,
                 },
                 style,
             ]}

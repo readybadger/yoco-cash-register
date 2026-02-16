@@ -1,5 +1,5 @@
-import { Colours } from "./theme";
+import { Colors } from "./theme";
 
-export type ColourVariant = "primary" | "secondary";
+export type ColorVariant = "primary" | "secondary";
 
-export type ColourName = keyof typeof Colours.light & keyof typeof Colours.dark;
+export type ColorName = keyof typeof Colors.light & keyof typeof Colors.dark;

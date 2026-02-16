@@ -1,15 +1,15 @@
 import { useColorScheme } from "react-native";
-import { Colours } from "@/constants/theme";
-import { ColourName } from "@/constants/types";
+import { Colors } from "@/constants/theme";
+import { ColorName } from "@/constants/types";
 
-export function useThemeColors(colorName: ColourName): string;
-export function useThemeColors(...colorNames: ColourName[]): string[];
-export function useThemeColors(...colorNames: ColourName[]): string | string[] {
+export function useThemeColors(colorName: ColorName): string;
+export function useThemeColors(...colorNames: ColorName[]): string[];
+export function useThemeColors(...colorNames: ColorName[]): string | string[] {
     const theme = useColorScheme() ?? "light";
 
     if (arguments.length === 1) {
-        return Colours[theme][colorNames[0]];
+        return Colors[theme][colorNames[0]];
     }
 
-    return colorNames.map((colorName) => Colours[theme][colorName]);
+    return colorNames.map((colorName) => Colors[theme][colorName]);
 }
