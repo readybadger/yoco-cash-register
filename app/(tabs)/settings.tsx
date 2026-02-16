@@ -1,11 +1,9 @@
-import { ScrollView, StyleSheet } from "react-native";
-
-import { ThemedView } from "@/components/themed-view";
+import { ScrollView, StyleSheet, View } from "react-native";
 
 export default function Settings() {
     return (
         <ScrollView>
-            <ThemedView style={styles.titleContainer}></ThemedView>
+            <View style={styles.titleContainer}></View>
         </ScrollView>
     );
 }

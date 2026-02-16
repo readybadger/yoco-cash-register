@@ -3,8 +3,8 @@ import React from "react";
 
 import FontAwesomeIcon from "@expo/vector-icons/FontAwesome5";
 
-import { Colors } from "@/constants/theme";
-import { useColorScheme } from "@/hooks/use-color-scheme";
+import { Colours } from "@/constants/theme";
+import { useColorScheme } from "react-native";
 
 export default function TabLayout() {
     const colorScheme = useColorScheme();
@@ -13,7 +13,7 @@ export default function TabLayout() {
     return (
         <Tabs
             screenOptions={({ route }) => ({
-                tabBarActiveTintColor: Colors[colorScheme ?? "light"].tint,
+                tabBarActiveTintColor: Colours[colorScheme ?? "light"].tint,
                 headerShown: screensWithHeader.includes(route.name),
             })}
         >
