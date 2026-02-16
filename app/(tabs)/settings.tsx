@@ -2,7 +2,6 @@ import ThemedText from "@/components/themed/ThemedText";
 import useSettings from "@/hooks/use-settings";
 import { useThemeColors } from "@/hooks/use-theme-color";
 import {
-    FlatList,
     ScrollView,
     StyleProp,
     StyleSheet,
@@ -12,8 +11,6 @@ import {
     ViewStyle,
 } from "react-native";
 import { useSafeAreaInsets } from "react-native-safe-area-context";
-import Dropdown from "react-native-input-select";
-import { TSelectedItem } from "react-native-input-select/lib/typescript/src/types/index.types";
 import CurrencyPicker from "@/components/CurrencyPicker";
 
 export default function Settings() {
