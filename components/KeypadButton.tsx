@@ -1,5 +1,5 @@
 import { Pressable, PressableProps, StyleProp, StyleSheet, View, ViewStyle } from "react-native";
-import ThemedText from "./themed/ThemedText";
+import ThemedText from "@/components/themed/ThemedText";
 import { PropsWithChildren } from "react";
 import { useThemeColors } from "@/hooks/use-theme-color";
 

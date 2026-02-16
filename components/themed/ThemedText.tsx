@@ -1,6 +1,7 @@
+import { Text, TextProps } from "react-native";
+
 import { ColorName, ColorVariant } from "@/constants/types";
 import { useThemeColors } from "@/hooks/use-theme-color";
-import { Text, TextProps } from "react-native";
 
 type ThemedTextProps = {
     variant?: ColorVariant;
