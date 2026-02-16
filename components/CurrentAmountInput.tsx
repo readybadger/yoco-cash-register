@@ -6,13 +6,19 @@ type CurrentAmountInputProps = {
     onAdd: (value: number) => void;
 };
 
+const MAX_SUPPORTED_AMOUNT = 100000000;
+
 export default function CurrentAmountInput({ onAdd }: CurrentAmountInputProps) {
     const [amount, setAmount] = useState("");
 
-    const parsedAmount = amount ? parseInt(amount) : 0;
+    const parsedAmount = parseInt(amount) || 0;
 
     const onNumberPressed = (digit: string) => {
-        setAmount(`${amount}${digit}`);
+        const newAmountString = `${amount}${digit}`;
+        const newAmount = parseInt(newAmountString) || 0;
+        if (newAmount < MAX_SUPPORTED_AMOUNT) {
+            setAmount(newAmountString);
+        }
     };
 
     const onDelPressed = () => {

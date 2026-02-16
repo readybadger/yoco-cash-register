@@ -14,7 +14,7 @@ export default function useCurrencyFormatter(): {
     });
     const format = useCallback(
         (value: number) => {
-            const amount = value / 10;
+            const amount = value / 100;
             return formatter.format(amount);
         },
         [formatter],
