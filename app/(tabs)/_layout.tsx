@@ -15,6 +15,9 @@ export default function TabLayout() {
             screenOptions={({ route }) => ({
                 tabBarActiveTintColor: Colors[colorScheme ?? "light"].tint,
                 headerShown: screensWithHeader.includes(route.name),
+                tabBarStyle: {
+                    paddingTop: 4,
+                },
             })}
         >
             <Tabs.Screen

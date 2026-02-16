@@ -1,5 +1,6 @@
 import ChargeList from "@/components/ChargeList";
 import CurrentAmountInput from "@/components/CurrentAmountInput";
+import { useThemeColors } from "@/hooks/use-theme-color";
 import { Charge } from "@/types/point-of-sale";
 import { useState } from "react";
 import { StyleSheet, View } from "react-native";
@@ -19,6 +20,7 @@ export default function PointOfSale() {
         { amount: 17.27, key: "8" },
         { amount: 10.05, key: "9" },
     ]);
+    const backgroundColor = useThemeColors("background");
 
     const onAddCharge = (amount: number) => {
         setCharges([
@@ -37,6 +39,7 @@ export default function PointOfSale() {
             style={[
                 {
                     paddingTop: safeAreaInsets.top,
+                    backgroundColor,
                 },
                 styles.view,
             ]}
