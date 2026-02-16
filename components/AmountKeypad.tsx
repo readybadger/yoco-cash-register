@@ -48,7 +48,6 @@ export default function AmountKeypad({
 
 const styles = StyleSheet.create({
     row: {
-        flex: 1,
         flexDirection: "row",
     },
     leftButton: {
