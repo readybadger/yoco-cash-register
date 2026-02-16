@@ -5,14 +5,14 @@ import useCurrencyFormatter from "@/hooks/use-currency-formatter";
 type CurrentAmountProps = {
     value: number;
 };
-const CurrentAmount = ({ value }: CurrentAmountProps) => {
+export default function CurrentAmount({ value }: CurrentAmountProps) {
     const { format } = useCurrencyFormatter();
     return (
         <View style={styles.currentAmountView}>
             <ThemedText style={styles.currentAmountText}>{format(value)}</ThemedText>
         </View>
     );
-};
+}
 
 const styles = StyleSheet.create({
     currentAmountView: {
@@ -24,5 +24,3 @@ const styles = StyleSheet.create({
         textAlign: "right",
     },
 });
-
-export default CurrentAmount;

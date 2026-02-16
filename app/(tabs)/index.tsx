@@ -1,11 +1,11 @@
-import CurrentAmount from "@/components/CurrentAmount";
+import CurrentAmountInput from "@/components/CurrentAmountInput";
 
 import { SafeAreaView } from "react-native-safe-area-context";
 
 export default function PointOfSale() {
     return (
         <SafeAreaView>
-            <CurrentAmount value={0} />
+            <CurrentAmountInput onAdd={alert} />
         </SafeAreaView>
     );
 }
