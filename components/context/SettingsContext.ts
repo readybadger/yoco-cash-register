@@ -1,8 +1,13 @@
 import { createContext } from "react";
+import { ColorSchemeName } from "react-native";
+
+export type ColorSchemeSetting = "system" | ColorSchemeName;
 
 export type AppSettings = {
     locale: string;
     currency: string;
+    theme: ColorSchemeSetting;
+    autoScrollChargeList: boolean;
 };
 
 export type AppSettingsProvider = {
@@ -13,6 +18,8 @@ export type AppSettingsProvider = {
 export const DEFAULT_APP_SETTINGS: AppSettings = {
     locale: "en-ZA",
     currency: "ZAR",
+    theme: "system",
+    autoScrollChargeList: true,
 };
 
 export const SettingsContext = createContext<AppSettingsProvider>({

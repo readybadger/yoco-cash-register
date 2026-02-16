@@ -5,12 +5,14 @@ import { useThemeColors } from "@/hooks/use-theme-color";
 import useCurrencyFormatter from "@/hooks/use-currency-formatter";
 import EmptyChargeListMessage from "./EmptyChargeListMessage";
 import { useEffect, useMemo, useRef } from "react";
+import useSettings from "@/hooks/use-settings";
 
 type ChargeListProps = {
     charges: Charge[];
 };
 
 export default function ChargeList({ charges }: ChargeListProps) {
+    const { settings } = useSettings();
     const [backgroundColor, dividerColor] = useThemeColors("backgroundSecondary", "textSecondary");
     const flatListRef = useRef<FlatList<Charge>>(null);
     const { format } = useCurrencyFormatter();
@@ -21,8 +23,10 @@ export default function ChargeList({ charges }: ChargeListProps) {
     );
 
     useEffect(() => {
-        flatListRef?.current?.scrollToEnd();
-    }, [charges]);
+        if (settings.autoScrollChargeList) {
+            flatListRef?.current?.scrollToEnd();
+        }
+    }, [charges, settings.autoScrollChargeList]);
 
     return (
         <View
@@ -39,11 +43,21 @@ export default function ChargeList({ charges }: ChargeListProps) {
                 contentContainerStyle={styles.listContainer}
                 data={charges}
                 ListEmptyComponent={EmptyChargeListMessage}
-                renderItem={({ item: { amount } }) => (
-                    <ThemedText style={[styles.listItem, styles.chargeText]} variant="secondary">
-                        {format(amount)}
-                    </ThemedText>
-                )}
+                renderItem={({ item: { amount }, index }) => {
+                    const isLastItem = index === charges.length - 1;
+                    return (
+                        <ThemedText
+                            style={[
+                                styles.listItem,
+                                styles.chargeText,
+                                isLastItem && styles.lastListItem,
+                            ]}
+                            variant="secondary"
+                        >
+                            {format(amount)}
+                        </ThemedText>
+                    );
+                }}
             />
             {total ? (
                 <>
@@ -63,15 +77,19 @@ const styles = StyleSheet.create({
     },
     list: {
         flex: 1,
+        paddingBottom: 12,
     },
     listContainer: {
         flexGrow: 1,
-        paddingVertical: 12,
         alignSelf: "stretch",
         justifyContent: "flex-end",
+        paddingTop: 12,
     },
     listItem: {
         paddingVertical: 8,
+    },
+    lastListItem: {
+        paddingBottom: 24,
     },
     chargeText: {
         textAlign: "right",
@@ -79,10 +97,11 @@ const styles = StyleSheet.create({
         fontSize: 22,
     },
     totalText: {
-        paddingVertical: 20,
+        paddingVertical: 24,
+        paddingHorizontal: 46,
     },
     divider: {
-        height: StyleSheet.hairlineWidth * 4,
+        height: 2,
         marginHorizontal: 24,
     },
 });
