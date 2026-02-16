@@ -1,14 +1,21 @@
 import ThemedText from "@/components/themed/ThemedText";
 import useSettings from "@/hooks/use-settings";
 import { useThemeColors } from "@/hooks/use-theme-color";
-import { ScrollView, StyleSheet, Switch, useColorScheme, View } from "react-native";
+import { ScrollView, StyleProp, StyleSheet, Switch, useColorScheme, View } from "react-native";
 import { useSafeAreaInsets } from "react-native-safe-area-context";
 
 export default function Settings() {
     const { settings, updateSettings } = useSettings();
     const safeAreaInsets = useSafeAreaInsets();
-    const backgroundColor = useThemeColors("background");
+    const [backgroundColor, borderColor] = useThemeColors("background", "border");
     const systemColorScheme = useColorScheme();
+
+    const sectionStyle: StyleProp = [
+        styles.sectionContainer,
+        {
+            borderColor,
+        },
+    ];
 
     const onToggleMatchSystem = (matchSystem: boolean) => {
         updateSettings({
@@ -34,8 +41,8 @@ export default function Settings() {
         >
             <ThemedText style={styles.title}>Settings</ThemedText>
             <ScrollView style={styles.scrolView}>
-                <View style={styles.valueContainer}>
-                    <ThemedText style={styles.subHeading}>Appearance</ThemedText>
+                <View style={sectionStyle}>
+                    <ThemedText style={styles.sectionTitle}>Appearance</ThemedText>
                     <View style={styles.switchValueRow}>
                         <ThemedText style={styles.label}>Match system appearance</ThemedText>
                         <Switch
@@ -68,8 +75,9 @@ const styles = StyleSheet.create({
     title: {
         fontSize: 32,
         paddingHorizontal: 24,
+        marginBottom: 12,
     },
-    subHeading: {
+    sectionTitle: {
         fontSize: 24,
         fontWeight: "semibold",
         marginBottom: 16,
@@ -77,9 +85,11 @@ const styles = StyleSheet.create({
     scrolView: {
         flex: 1,
     },
-    valueContainer: {
-        paddingHorizontal: 32,
+    sectionContainer: {
+        paddingHorizontal: 12,
         paddingVertical: 16,
+        marginHorizontal: 24,
+        borderBottomWidth: StyleSheet.hairlineWidth,
     },
     label: {
         fontSize: 18,
