@@ -2,6 +2,7 @@ import ThemedText from "@/components/themed/ThemedText";
 import useSettings from "@/hooks/use-settings";
 import { useThemeColors } from "@/hooks/use-theme-color";
 import {
+    FlatList,
     ScrollView,
     StyleProp,
     StyleSheet,
@@ -11,6 +12,9 @@ import {
     ViewStyle,
 } from "react-native";
 import { useSafeAreaInsets } from "react-native-safe-area-context";
+import Dropdown from "react-native-input-select";
+import { TSelectedItem } from "react-native-input-select/lib/typescript/src/types/index.types";
+import CurrencyPicker from "@/components/CurrencyPicker";
 
 export default function Settings() {
     const { settings, updateSettings } = useSettings();
@@ -40,6 +44,12 @@ export default function Settings() {
     const onToggleAutoScrollChargeList = (autoScrollChargeList: boolean) => {
         updateSettings({
             autoScrollChargeList,
+        });
+    };
+
+    const onChangeCurrency = (currency: string) => {
+        updateSettings({
+            currency,
         });
     };
 
@@ -86,8 +96,9 @@ export default function Settings() {
                             onValueChange={onToggleAutoScrollChargeList}
                         />
                     </View>
-                    <View style={styles.switchValueRow}>
-                        <ThemedText style={styles.label}>Currency</ThemedText>
+                    <View>
+                        <ThemedText style={[styles.label, styles.stackLabel]}>Currency</ThemedText>
+                        <CurrencyPicker value={settings.currency} onChange={onChangeCurrency} />
                     </View>
                 </View>
             </ScrollView>
@@ -120,6 +131,9 @@ const styles = StyleSheet.create({
     },
     label: {
         fontSize: 18,
+    },
+    stackLabel: {
+        marginBottom: 10,
     },
     switchValueRow: {
         flexDirection: "row",
