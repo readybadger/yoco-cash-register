@@ -5,7 +5,9 @@ import useSettings from "./use-settings";
 export default function useCurrencyFormatter(): {
     format: (value: number) => string;
 } {
-    const { locale, currency } = useSettings();
+    const {
+        settings: { locale, currency },
+    } = useSettings();
     const formatter = Intl.NumberFormat(locale, {
         style: "currency",
         currency: currency,
