@@ -8,13 +8,12 @@ import { useColorScheme } from "react-native";
 
 export default function TabLayout() {
     const colorScheme = useColorScheme();
-    const screensWithHeader = ["settings"];
 
     return (
         <Tabs
             screenOptions={({ route }) => ({
                 tabBarActiveTintColor: Colors[colorScheme ?? "light"].tint,
-                headerShown: screensWithHeader.includes(route.name),
+                headerShown: false,
                 tabBarStyle: {
                     paddingTop: 4,
                 },
