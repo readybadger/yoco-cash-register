@@ -4,13 +4,15 @@ export const Colours = {
         textSecondary: "#F7F9FC",
         background: "#E8EDF4",
         backgroundSecondary: "#545E75",
+        backgroundInteractive: "#F7F9FC",
         tint: "#335",
     },
     dark: {
         text: "#ECEDEE",
         textSecondary: "#ECEDEE",
-        background: "#fff",
+        background: "#151718",
         backgroundSecondary: "#151718",
+        backgroundInteractive: "#151718",
         tint: "#FFF",
     },
 };
