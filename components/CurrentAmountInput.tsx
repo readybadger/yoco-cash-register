@@ -26,7 +26,10 @@ export default function CurrentAmountInput({ onAdd }: CurrentAmountInputProps) {
     };
 
     const onAddPressed = () => {
-        onAdd(parsedAmount);
+        if (parsedAmount) {
+            onAdd(parsedAmount);
+            setAmount("");
+        }
     };
 
     return (
