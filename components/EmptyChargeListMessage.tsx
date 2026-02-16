@@ -8,7 +8,7 @@ export default function EmptyChargeListMessage() {
                 No charges captured
             </ThemedText>
             <ThemedText variant="secondary" style={[styles.noChargesMessageSubText]}>
-                Enter an amount and press 'ADD' to add a charge
+                Enter an amount and press &lsquo;ADD&lsquo; to add a charge
             </ThemedText>
         </View>
     );
