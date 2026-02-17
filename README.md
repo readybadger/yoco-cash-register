@@ -25,3 +25,4 @@ Things I would add if I had more time!
 - [ ] Component tests
 - [ ] Proper i18n, especially for translations
 - [ ] Enhancements to the POS functionality (barcode scanner, SKUs to charge objects, etc.)
+- [ ] Persisted settings through a local kv store or remotely
