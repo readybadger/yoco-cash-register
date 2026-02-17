@@ -8,7 +8,7 @@ export default function EmptyChargeListMessage() {
                 No charges captured
             </ThemedText>
             <ThemedText variant="secondary" style={[styles.noChargesMessageSubText]}>
-                Enter an amount and press &lsquo;ADD&lsquo; to add a charge
+                Enter an amount and press ADD to add a charge
             </ThemedText>
         </View>
     );
@@ -19,6 +19,7 @@ const styles = StyleSheet.create({
         flex: 1,
         justifyContent: "center",
         paddingRight: 24,
+        gap: 8,
     },
     noChargesMessageText: {
         textAlign: "right",

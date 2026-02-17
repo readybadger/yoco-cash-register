@@ -51,6 +51,9 @@ export default function ChargeList({ charges }: ChargeListProps) {
                                 styles.listItem,
                                 styles.chargeText,
                                 isLastItem && styles.lastListItem,
+                                isLastItem && {
+                                    borderColor: dividerColor,
+                                },
                             ]}
                             variant="secondary"
                         >
@@ -74,10 +77,10 @@ export default function ChargeList({ charges }: ChargeListProps) {
 const styles = StyleSheet.create({
     container: {
         flexGrow: 1,
+        paddingBottom: 2,
     },
     list: {
         flex: 1,
-        paddingBottom: 12,
     },
     listContainer: {
         flexGrow: 1,
@@ -86,11 +89,15 @@ const styles = StyleSheet.create({
         paddingTop: 12,
     },
     listItem: {
-        paddingVertical: 8,
+        paddingVertical: 6,
         paddingHorizontal: 46,
     },
     lastListItem: {
-        paddingBottom: 24,
+        paddingBottom: 18,
+        paddingHorizontal: 24,
+        marginHorizontal: 24,
+        marginBottom: 2,
+        borderBottomWidth: 2,
     },
     chargeText: {
         textAlign: "right",
