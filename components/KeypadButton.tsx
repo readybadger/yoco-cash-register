@@ -1,15 +1,23 @@
-import { Pressable, PressableProps, StyleProp, StyleSheet, View, ViewStyle } from "react-native";
+import {
+    StyleProp,
+    StyleSheet,
+    TouchableOpacity,
+    TouchableOpacityProps,
+    View,
+    ViewStyle,
+} from "react-native";
 import ThemedText from "@/components/themed/ThemedText";
 import { PropsWithChildren } from "react";
 import { useThemeColors } from "@/hooks/use-theme-color";
 
-type KeypadButtonProps = PressableProps & PropsWithChildren & { style?: StyleProp<ViewStyle> };
+type KeypadButtonProps = TouchableOpacityProps &
+    PropsWithChildren & { style?: StyleProp<ViewStyle> };
 
 export default function KeypadButton({ children, style, ...pressableProps }: KeypadButtonProps) {
     const [backgroundColor, borderColor] = useThemeColors("backgroundInteractive", "border");
     return (
         <View style={styles.container}>
-            <Pressable {...pressableProps}>
+            <TouchableOpacity {...pressableProps}>
                 <View
                     style={[
                         styles.button,
@@ -22,7 +30,7 @@ export default function KeypadButton({ children, style, ...pressableProps }: Key
                 >
                     <ThemedText style={styles.text}>{children}</ThemedText>
                 </View>
-            </Pressable>
+            </TouchableOpacity>
         </View>
     );
 }
