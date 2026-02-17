@@ -1,5 +1,10 @@
 # Welcome the Super Mini Cash Register 👋
 
+
+## Screenshot
+<img src="preview.png" alt="App screenshot" width="200" />
+
+
 ## Get started
 1. Install dependencies
    ```bash
