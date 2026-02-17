@@ -3,16 +3,15 @@ import React from "react";
 
 import FontAwesomeIcon from "@expo/vector-icons/FontAwesome5";
 
-import { Colors } from "@/constants/theme";
-import { useColorScheme } from "react-native";
+import { useThemeColors } from "@/hooks/use-theme-color";
 
 export default function TabLayout() {
-    const colorScheme = useColorScheme();
+    const tintColor = useThemeColors("tint");
 
     return (
         <Tabs
             screenOptions={({ route }) => ({
-                tabBarActiveTintColor: Colors[colorScheme ?? "light"].tint,
+                tabBarActiveTintColor: tintColor,
                 headerShown: false,
                 tabBarStyle: {
                     paddingTop: 4,
