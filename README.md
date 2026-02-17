@@ -31,3 +31,4 @@ Things I would add if I had more time!
 - [ ] Proper i18n, especially for translations
 - [ ] Enhancements to the POS functionality (barcode scanner, SKUs to charge objects, etc.)
 - [ ] Persisted settings through a local kv store or remotely
+- [ ] Some kind of system for consistent spacing (base unit and scaling)
