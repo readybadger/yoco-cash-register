@@ -74,10 +74,13 @@ export default function ChargeList({ charges }: ChargeListProps) {
     );
 }
 
+const horizontalItemPadding = 64;
+const dividerMargin = 24;
+
 const styles = StyleSheet.create({
     container: {
         flexGrow: 1,
-        paddingBottom: 2,
+        paddingBottom: 20,
     },
     list: {
         flex: 1,
@@ -90,12 +93,12 @@ const styles = StyleSheet.create({
     },
     listItem: {
         paddingVertical: 6,
-        paddingHorizontal: 46,
+        paddingHorizontal: horizontalItemPadding,
     },
     lastListItem: {
         paddingBottom: 18,
-        paddingHorizontal: 24,
-        marginHorizontal: 24,
+        paddingHorizontal: horizontalItemPadding - dividerMargin,
+        marginHorizontal: dividerMargin,
         marginBottom: 2,
         borderBottomWidth: 2,
     },
@@ -105,10 +108,10 @@ const styles = StyleSheet.create({
     },
     totalText: {
         paddingVertical: 24,
-        paddingHorizontal: 46,
+        paddingHorizontal: horizontalItemPadding,
     },
     divider: {
         height: 2,
-        marginHorizontal: 24,
+        marginHorizontal: dividerMargin,
     },
 });
